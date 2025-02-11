@@ -1,4 +1,4 @@
-# Loan amortization calculator
+# ORIGINAL VERSION CHECK OUT UNDERNEATH: Loan amortization calculator
 This is a light-weight library that allows calculating annual loan amortization schedule with a capability of setting early (additional) payments. </br>
 The calculation is implemented is in this library without using any extra heavy transitive dependencies.
 
