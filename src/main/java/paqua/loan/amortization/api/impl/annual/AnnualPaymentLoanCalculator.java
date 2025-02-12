@@ -259,7 +259,7 @@ class AnnualPaymentLoanCalculator implements LoanAmortizationCalculator {
     private BigDecimal getInterestAmountByBalanceAndMonthlyInterestRate(BigDecimal currentLoanBalance, BigDecimal monthlyInterestRate) {
         return currentLoanBalance
                 .multiply(monthlyInterestRate)
-                .setScale(2, RoundingMode.HALF_UP);
+                .setScale(4, RoundingMode.HALF_UP);
     }
 
     /**
@@ -273,12 +273,12 @@ class AnnualPaymentLoanCalculator implements LoanAmortizationCalculator {
      * @return interest amount
      */
     private BigDecimal calculateInterestAmount(Loan loan, BigDecimal currentLoanBalance, BigDecimal monthlyInterestRate, LocalDate paymentDate) {
-        return paymentDate == null
-                ? getInterestAmountByBalanceAndMonthlyInterestRate(currentLoanBalance, monthlyInterestRate)
-                : getInterestAmountByBalanceRateAndDays(
+        return /*paymentDate == null
+                ?*/ getInterestAmountByBalanceAndMonthlyInterestRate(currentLoanBalance, monthlyInterestRate);
+                /*: getInterestAmountByBalanceRateAndDays(
                     currentLoanBalance, loan.getRate(),
                     paymentDate.minusMonths(1).lengthOfMonth(),
                     paymentDate.minusMonths(1).lengthOfYear()
-                );
+                );TODO*/
     }
 }

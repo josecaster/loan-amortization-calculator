@@ -40,6 +40,8 @@ import java.util.Objects;
 public final class Loan implements Serializable {
     private static final long serialVersionUID = 8435495249049946452L;
 
+    private final LoanType loanType;
+
     /**
      * Debt amount (principal)
      */
@@ -70,12 +72,13 @@ public final class Loan implements Serializable {
     private final LocalDate firstPaymentDate;
 
     @ConstructorProperties({"amount", "rate", "term", "earlyPayments", "firstPaymentDate"})
-    public Loan(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate) {
+    public Loan(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType) {
         this.amount = amount;
         this.rate = rate;
         this.term = term;
         this.earlyPayments = earlyPayments;
         this.firstPaymentDate = firstPaymentDate;
+        this.loanType = loanType;
     }
 
     /**
@@ -118,6 +121,10 @@ public final class Loan implements Serializable {
         return firstPaymentDate;
     }
 
+    public LoanType getLoanType() {
+        return loanType;
+    }
+
     public static LoanBuilder builder() {
         return new LoanBuilder();
     }
@@ -132,16 +139,18 @@ public final class Loan implements Serializable {
         private Integer term;
         private Map<Integer, EarlyPayment> earlyPayments;
         private LocalDate firstPaymentDate;
+        private LoanType loanType = LoanType.ANNUAL_BALANCED;
 
         public LoanBuilder() {
         }
 
-        public LoanBuilder(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate) {
+        public LoanBuilder(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType) {
             this.amount = amount;
             this.rate = rate;
             this.term = term;
             this.earlyPayments = earlyPayments;
             this.firstPaymentDate = firstPaymentDate;
+            this.loanType = loanType == null ? LoanType.ANNUAL_BALANCED : loanType;
         }
 
         /**
@@ -236,8 +245,13 @@ public final class Loan implements Serializable {
             return this;
         }
 
+        public LoanBuilder setLoanType(LoanType loanType) {
+            this.loanType = loanType;
+            return this;
+        }
+
         public Loan build() {
-            return new Loan(amount, rate, term, earlyPayments, firstPaymentDate);
+            return new Loan(amount, rate, term, earlyPayments, firstPaymentDate,loanType);
         }
     }
 
@@ -250,12 +264,13 @@ public final class Loan implements Serializable {
                 Objects.equals(rate, loan.rate) &&
                 Objects.equals(term, loan.term) &&
                 Objects.equals(firstPaymentDate, loan.firstPaymentDate) &&
-                Objects.equals(earlyPayments, loan.earlyPayments);
+                Objects.equals(earlyPayments, loan.earlyPayments) &&
+                Objects.equals(loanType, loan.loanType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, rate, term, firstPaymentDate, earlyPayments);
+        return Objects.hash(amount, rate, term, firstPaymentDate, earlyPayments, loanType);
     }
 
     @Override
@@ -266,6 +281,7 @@ public final class Loan implements Serializable {
                 ", term=" + term +
                 ", firstPaymentDate=" + firstPaymentDate +
                 ", earlyPayments=" + earlyPayments +
+                ", loanType=" + loanType +
                 '}';
     }
 }

@@ -209,4 +209,28 @@ public final class LoanAmortization implements Serializable {
                 ", earlyPayments=" + earlyPayments +
                 '}';
     }
+
+    public void printLog(){
+        System.out.println("+----------------------+-------------------+");
+        System.out.printf("| %-20s | %-17s |\n",
+                "monthlyPaymentAmount", "overPaymentAmount");
+        System.out.println("+----------------------+-------------------+");
+        System.out.printf("| %-20s | %-17s |\n",
+                getMonthlyPaymentAmount(), getOverPaymentAmount());
+        System.out.println("+----------------------+-------------------+");
+
+
+        System.out.println("+--------------+-------------------+---------------------+------------------------+-----------------+---------------------------+---------------+");
+        System.out.printf("| %-12s | %-17s | %-19s | %-22s | %-15s | %-25s | %-13s |\n",
+                "monthNumber", "loanBalanceAmount", "debtPaymentAmount", "interestPaymentAmount", "paymentAmount", "additionalPaymentAmount","paymentDate");
+
+
+        for(MonthlyPayment monthlyPayment : getMonthlyPayments()){
+            System.out.println("+--------------+-------------------+---------------------+------------------------+-----------------+---------------------------+---------------+");
+            System.out.printf("| %-12s | %-17s | %-19s | %-22s | %-15s | %-25s | %-13s |\n",
+                    monthlyPayment.getMonthNumber(), monthlyPayment.getLoanBalanceAmount(), monthlyPayment.getDebtPaymentAmount(), monthlyPayment.getInterestPaymentAmount()
+                    , monthlyPayment.getPaymentAmount(), monthlyPayment.getAdditionalPaymentAmount(), monthlyPayment.getPaymentDate());
+            System.out.println("+--------------+-------------------+---------------------+------------------------+-----------------+---------------------------+---------------+");
+        }
+    }
 }
