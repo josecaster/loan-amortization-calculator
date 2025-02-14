@@ -71,7 +71,9 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
 
                 totalDue = totalDue.subtract(monthlyInterest.add(monthlyPrincipal).add(additionalPaymentAmount));
                 if(totalDue.compareTo(BigDecimal.ZERO) < 0){
-                    throw new IllegalArgumentException("Too much money");
+//                    throw new IllegalArgumentException("Too much money");
+                    paymentAmount = paymentAmount.add(totalDue);
+                    monthlyPrincipal = paymentAmount.subtract(monthlyInterest);
                 }
 
                 if(paymentAmount.compareTo(BigDecimal.ZERO) <= 0){
