@@ -69,7 +69,7 @@ class LoanAmortizationCalculatorImpl implements LoanAmortizationCalculator {
                 return ANNUAL_PAYMENT_LOAN_AMORTIZATION_CALCULATOR.calculate(getLoanWithImplementedEarlyPaymentStrategy(inputLoan));
             case FIXED_INTREST:
                 return FIXED_LOAN_AMORTIZATION_CALCULATOR.calculate(getLoanWithImplementedEarlyPaymentStrategy(inputLoan));
-            case FIXED_INTREST_ONLY:return null;
+//            case FIXED_INTREST_ONLY:return null;
         }
 
 
