@@ -259,7 +259,7 @@ class AnnualPaymentLoanCalculator implements LoanAmortizationCalculator {
     private BigDecimal getInterestAmountByBalanceAndMonthlyInterestRate(BigDecimal currentLoanBalance, BigDecimal monthlyInterestRate) {
         return currentLoanBalance
                 .multiply(monthlyInterestRate)
-                .setScale(4, RoundingMode.HALF_UP);
+                .setScale(2, RoundingMode.HALF_UP);
     }
 
     /**
