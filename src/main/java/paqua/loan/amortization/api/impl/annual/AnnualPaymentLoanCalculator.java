@@ -27,6 +27,7 @@ package paqua.loan.amortization.api.impl.annual;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import paqua.loan.amortization.api.LoanAmortizationCalculator;
+import paqua.loan.amortization.api.impl.TaxResult;
 import paqua.loan.amortization.dto.*;
 
 import java.math.BigDecimal;
@@ -37,6 +38,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+
+import static paqua.loan.amortization.api.impl.fixed.FixedInterestLoanCalculator.getTaxAmountIncluded;
 
 /**
  * Implementation of the annual payment loan amortization calculator
@@ -82,15 +85,39 @@ class AnnualPaymentLoanCalculator implements LoanAmortizationCalculator {
                 if (lastPaymentNumber >= 0) {
                     final MonthlyPayment lastPayment = payments.get(lastPaymentNumber);
 
+//                    BigDecimal vatAmount;
+//                    if(loan.getIncludeTax() != null) {
+//                        if (loan.getIncludeTax()) {
+//                            vatAmount = getTaxAmountIncluded(loan, monthlyInterest);
+//                            if(loan.getLoanTaxType().compareTo(LoanTaxType.BOTH) == 0){
+//                                vatAmount = vatAmount.add(getTaxAmountIncluded(loan, lastPayment.getLoanBalanceAmount()));
+//                            }
+//                        } else {
+//                            vatAmount = monthlyInterest.multiply(BigDecimal.valueOf(loan.getTaxPercentage().doubleValue() / 100)); // Base price before VAT
+//                            if(loan.getLoanTaxType().compareTo(LoanTaxType.BOTH) == 0) {
+//                                vatAmount = vatAmount.add(monthlyPrincipal.multiply(BigDecimal.valueOf(loan.getTaxPercentage().doubleValue() / 100)));
+//                            }
+//
+//                            // Step 2: Calculate the VAT amount
+//                            monthlyPrincipal = monthlyPrincipal.add(vatAmount); // VAT is the difference
+//                        }
+//                    }
+
+                    BigDecimal interestPaymentAmount = lastPayment.getInterestPaymentAmount();
+                    BigDecimal loanBalanceAmount = lastPayment.getLoanBalanceAmount();
+                    TaxResult taxResult = TaxResult.calculateTax(loan, interestPaymentAmount, loanBalanceAmount);
+                    interestPaymentAmount = taxResult.getUpdatedMonthlyInterest();
+                    loanBalanceAmount = taxResult.getUpdatedMonthlyPrincipal();
                     payments.set(lastPaymentNumber, new MonthlyPayment.MonthlyPaymentBuilder()
                             .monthNumber(lastPayment.getMonthNumber())
                             .additionalPaymentAmount(lastPayment.getAdditionalPaymentAmount())
-                            .paymentAmount(lastPayment.getLoanBalanceAmount()
-                                    .add(lastPayment.getInterestPaymentAmount()))
-                            .debtPaymentAmount(lastPayment.getLoanBalanceAmount())
-                            .interestPaymentAmount(lastPayment.getInterestPaymentAmount())
+                            .paymentAmount(loanBalanceAmount
+                                    .add(interestPaymentAmount).add(taxResult.getTaxAmount()))
+                            .debtPaymentAmount(loanBalanceAmount)
+                            .interestPaymentAmount(interestPaymentAmount)
                             .paymentDate(paymentDate)
-                            .loanBalanceAmount(lastPayment.getLoanBalanceAmount())
+                            .loanBalanceAmount(loanBalanceAmount)
+                                    .taxAmount(taxResult.getVatAmount())
                             .build());
                 }
 
@@ -114,14 +141,20 @@ class AnnualPaymentLoanCalculator implements LoanAmortizationCalculator {
 
             paymentAmount = interestAmount.add(principalAmount);
 
+            BigDecimal interestPaymentAmount = interestAmount;
+            BigDecimal loanBalanceAmount = principalAmount;
+            TaxResult taxResult = TaxResult.calculateTax(loan, interestPaymentAmount, loanBalanceAmount);
+            interestPaymentAmount = taxResult.getUpdatedMonthlyInterest();
+            loanBalanceAmount = taxResult.getUpdatedMonthlyPrincipal();
             payments.add(MonthlyPayment.builder()
-                    .interestPaymentAmount(interestAmount)
-                    .debtPaymentAmount(principalAmount)
-                    .paymentAmount(paymentAmount)
+                    .interestPaymentAmount(interestPaymentAmount)
+                    .debtPaymentAmount(loanBalanceAmount)
+                    .paymentAmount(paymentAmount.add(taxResult.getTaxAmount()))
                     .loanBalanceAmount(loanBalance)
                     .monthNumber(i)
                     .additionalPaymentAmount(additionalPaymentAmount)
                     .paymentDate(paymentDate)
+                    .taxAmount(taxResult.getVatAmount())
                     .build());
 
             loanBalance = loanBalance.subtract(principalAmount);

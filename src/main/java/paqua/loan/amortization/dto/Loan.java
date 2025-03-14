@@ -71,14 +71,32 @@ public final class Loan implements Serializable {
      */
     private final LocalDate firstPaymentDate;
 
+    /**
+     * Tax Percentage (optional)
+     */
+    private BigDecimal taxPercentage;
+
+    /**
+     * Tax Type knowing what to calculate tax on (optional)
+     */
+    private LoanTaxType loanTaxType;
+
+    /**
+     * Tax included? (optional)
+     */
+    private Boolean includeTax;
+
     @ConstructorProperties({"amount", "rate", "term", "earlyPayments", "firstPaymentDate"})
-    public Loan(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType) {
+    public Loan(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType, BigDecimal taxPercentage, LoanTaxType loanTaxType, Boolean includeTax) {
         this.amount = amount;
         this.rate = rate;
         this.term = term;
         this.earlyPayments = earlyPayments;
         this.firstPaymentDate = firstPaymentDate;
         this.loanType = loanType;
+        this.taxPercentage = taxPercentage;
+        this.loanTaxType = loanTaxType;
+        this.includeTax = includeTax;
     }
 
     /**
@@ -87,6 +105,7 @@ public final class Loan implements Serializable {
     public BigDecimal getAmount() {
         return amount;
     }
+
 
     /**
      * @return Interest rate
@@ -125,6 +144,18 @@ public final class Loan implements Serializable {
         return loanType;
     }
 
+    public BigDecimal getTaxPercentage() {
+        return taxPercentage;
+    }
+
+    public LoanTaxType getLoanTaxType() {
+        return loanTaxType;
+    }
+
+    public Boolean getIncludeTax() {
+        return includeTax;
+    }
+
     public static LoanBuilder builder() {
         return new LoanBuilder();
     }
@@ -140,17 +171,23 @@ public final class Loan implements Serializable {
         private Map<Integer, EarlyPayment> earlyPayments;
         private LocalDate firstPaymentDate;
         private LoanType loanType = LoanType.ANNUAL_BALANCED;
+        private BigDecimal taxPercentage;
+        private LoanTaxType loanTaxType;
+        private Boolean includeTax;// null for no tax, true for include, false for exclude
 
         public LoanBuilder() {
         }
 
-        public LoanBuilder(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType) {
+        public LoanBuilder(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType, BigDecimal taxPercentage, LoanTaxType loanTaxType, Boolean includeTax) {
             this.amount = amount;
             this.rate = rate;
             this.term = term;
             this.earlyPayments = earlyPayments;
             this.firstPaymentDate = firstPaymentDate;
             this.loanType = loanType == null ? LoanType.ANNUAL_BALANCED : loanType;
+            this.taxPercentage = taxPercentage;
+            this.loanTaxType = loanTaxType;
+            this.includeTax = includeTax;
         }
 
         /**
@@ -208,6 +245,39 @@ public final class Loan implements Serializable {
         }
 
         /**
+         * Sets loan taxPercentage
+         *
+         * @param taxPercentage
+         * @return loan builder
+         */
+        public LoanBuilder tax(BigDecimal taxPercentage) {
+            this.taxPercentage = taxPercentage;
+            return this;
+        }
+
+        /**
+         * Sets loan loanTaxType
+         *
+         * @param loanTaxType
+         * @return loan builder
+         */
+        public LoanBuilder tax(LoanTaxType loanTaxType) {
+            this.loanTaxType = loanTaxType;
+            return this;
+        }
+
+        /**
+         * Sets loan includeTax
+         *
+         * @param includeTax
+         * @return loan builder
+         */
+        public LoanBuilder tax(Boolean includeTax) {
+            this.includeTax = includeTax;
+            return this;
+        }
+
+        /**
          * Sets early payment map
          * @param earlyPayments early payments map where key is a number of the payment, value - an early payment
          *
@@ -251,7 +321,7 @@ public final class Loan implements Serializable {
         }
 
         public Loan build() {
-            return new Loan(amount, rate, term, earlyPayments, firstPaymentDate,loanType);
+            return new Loan(amount, rate, term, earlyPayments, firstPaymentDate,loanType, taxPercentage, loanTaxType, includeTax);
         }
     }
 

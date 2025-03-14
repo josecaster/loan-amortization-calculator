@@ -4,6 +4,7 @@ package paqua.loan.amortization.api.impl.fixed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import paqua.loan.amortization.api.LoanAmortizationCalculator;
+import paqua.loan.amortization.api.impl.TaxResult;
 import paqua.loan.amortization.dto.*;
 
 import java.math.BigDecimal;
@@ -55,7 +56,9 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
                     if(paymentAmount.compareTo(BigDecimal.ZERO) <= 0){
                         continue;
                     }
-                    payments.add(new MonthlyPayment(i, remainingPrincipal, monthlyPrincipal, monthlyInterest, paymentAmount, additionalPaymentAmount, paymentDate));
+
+                    TaxResult taxResult = TaxResult.calculateTax(loan, monthlyInterest, monthlyPrincipal);
+                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTaxAmount()), additionalPaymentAmount, paymentDate, taxResult.getVatAmount()));
                     monthlyPrincipal = remainingPrincipal.divide(BigDecimal.valueOf(term-i), 2, RoundingMode.HALF_UP);
                     paymentAmount = monthlyInterest.add(monthlyPrincipal);
                 }
@@ -65,7 +68,8 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
                     if(paymentAmount.compareTo(BigDecimal.ZERO) <= 0){
                         continue;
                     }
-                    payments.add(new MonthlyPayment(i, remainingPrincipal, monthlyPrincipal, monthlyInterest, paymentAmount, additionalPaymentAmount, paymentDate));
+                    TaxResult taxResult = TaxResult.calculateTax(loan, monthlyInterest, monthlyPrincipal);
+                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTaxAmount()), additionalPaymentAmount, paymentDate, taxResult.getVatAmount()));
                 }
             } else {
 
@@ -79,7 +83,8 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
                 if(paymentAmount.compareTo(BigDecimal.ZERO) <= 0){
                     continue;
                 }
-                payments.add(new MonthlyPayment(i, remainingPrincipal, monthlyPrincipal, monthlyInterest, paymentAmount, additionalPaymentAmount, paymentDate));
+                TaxResult taxResult = TaxResult.calculateTax(loan, monthlyInterest, monthlyPrincipal);
+                payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTaxAmount()), additionalPaymentAmount, paymentDate, taxResult.getVatAmount()));
             }
 
 
@@ -96,5 +101,18 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
 
         LOGGER.debug("Calculation result: {}", result);
         return result;
+    }
+
+    public static BigDecimal getTaxAmountIncluded(Loan loan, BigDecimal monthlyInterest) {
+        BigDecimal percentage = loan.getTaxPercentage();
+        BigDecimal vatRate = percentage.divide(new BigDecimal("100"), 2, RoundingMode.HALF_UP);
+
+        // Step 1: Calculate the base price before VAT
+        BigDecimal divisor = BigDecimal.ONE.add(vatRate); // Divisor is 1.10
+        BigDecimal basePrice = monthlyInterest.divide(divisor, 2, RoundingMode.HALF_UP); // Base price before VAT
+
+        // Step 2: Calculate the VAT amount
+        BigDecimal vatAmount1 = monthlyInterest.subtract(basePrice); // VAT is the difference
+        return vatAmount1;
     }
 }
