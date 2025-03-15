@@ -220,17 +220,17 @@ public final class LoanAmortization implements Serializable {
         System.out.println("+----------------------+-------------------+");
 
 
-        System.out.println("+--------------+-------------------+---------------------+------------------------+-----------------+---------------------------+---------------+");
-        System.out.printf("| %-12s | %-17s | %-19s | %-22s | %-15s | %-25s | %-13s |\n",
-                "monthNumber", "loanBalanceAmount", "debtPaymentAmount", "interestPaymentAmount", "paymentAmount", "additionalPaymentAmount","paymentDate");
+        System.out.println("+--------------+-------------------+---------------------+------------------------+-----------------+-----------------+---------------------------+---------------+");
+        System.out.printf("| %-12s | %-17s | %-19s | %-22s | %-15s | %-15s | %-25s | %-13s |\n",
+                "monthNumber", "loanBalanceAmount", "debtPaymentAmount", "interestPaymentAmount", "paymentAmount","    TaxAmount", "additionalPaymentAmount","paymentDate");
 
 
         for(MonthlyPayment monthlyPayment : getMonthlyPayments()){
-            System.out.println("+--------------+-------------------+---------------------+------------------------+-----------------+---------------------------+---------------+");
-            System.out.printf("| %-12s | %-17s | %-19s | %-22s | %-15s | %-25s | %-13s |\n",
+            System.out.println("+--------------+-------------------+---------------------+------------------------+-----------------+-----------------+---------------------------+---------------+");
+            System.out.printf("| %-12s | %-17s | %-19s | %-22s | %-15s | %-15s | %-25s | %-13s |\n",
                     monthlyPayment.getMonthNumber(), monthlyPayment.getLoanBalanceAmount(), monthlyPayment.getDebtPaymentAmount(), monthlyPayment.getInterestPaymentAmount()
-                    , monthlyPayment.getPaymentAmount(), monthlyPayment.getAdditionalPaymentAmount(), monthlyPayment.getPaymentDate());
-            System.out.println("+--------------+-------------------+---------------------+------------------------+-----------------+---------------------------+---------------+");
+                    , monthlyPayment.getPaymentAmount(),monthlyPayment.getTaxAmount(), monthlyPayment.getAdditionalPaymentAmount(), monthlyPayment.getPaymentDate());
+            System.out.println("+--------------+-------------------+---------------------+------------------------+-----------------+-----------------+---------------------------+---------------+");
         }
     }
 }

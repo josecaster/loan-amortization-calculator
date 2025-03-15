@@ -58,7 +58,7 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
                     }
 
                     TaxResult taxResult = TaxResult.calculateTax(loan, monthlyInterest, monthlyPrincipal);
-                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTaxAmount()), additionalPaymentAmount, paymentDate, taxResult.getVatAmount()));
+                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTotalVatExcludedAmount()), additionalPaymentAmount, paymentDate, taxResult.getTotalVatAmount()));
                     monthlyPrincipal = remainingPrincipal.divide(BigDecimal.valueOf(term-i), 2, RoundingMode.HALF_UP);
                     paymentAmount = monthlyInterest.add(monthlyPrincipal);
                 }
@@ -69,7 +69,7 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
                         continue;
                     }
                     TaxResult taxResult = TaxResult.calculateTax(loan, monthlyInterest, monthlyPrincipal);
-                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTaxAmount()), additionalPaymentAmount, paymentDate, taxResult.getVatAmount()));
+                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTotalVatExcludedAmount()), additionalPaymentAmount, paymentDate, taxResult.getTotalVatAmount()));
                 }
             } else {
 
@@ -84,7 +84,7 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
                     continue;
                 }
                 TaxResult taxResult = TaxResult.calculateTax(loan, monthlyInterest, monthlyPrincipal);
-                payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTaxAmount()), additionalPaymentAmount, paymentDate, taxResult.getVatAmount()));
+                payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTotalVatExcludedAmount()), additionalPaymentAmount, paymentDate, taxResult.getTotalVatAmount()));
             }
 
 
