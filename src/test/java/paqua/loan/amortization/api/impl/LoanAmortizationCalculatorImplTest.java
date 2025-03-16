@@ -60,6 +60,6 @@ class LoanAmortizationCalculatorImplTest {
     @Test
     void shouldFailWhenLoanValuesAreNull() {
         Assertions.assertThrows(LoanAmortizationCalculatorException.class, () ->
-                calculator.calculate(new Loan(null, null, null, null, null, null)));
+                calculator.calculate(new Loan(null, null, null, null, null, null, null, null, null)));
     }
 }
