@@ -86,7 +86,7 @@ public final class Loan implements Serializable {
      */
     private Boolean includeTax;
 
-    @ConstructorProperties({"amount", "rate", "term", "earlyPayments", "firstPaymentDate"})
+    @ConstructorProperties({"amount", "rate", "term", "earlyPayments", "firstPaymentDate", "loanType", "taxPercentage", "loanTaxType", "includeTax"})
     public Loan(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType, BigDecimal taxPercentage, LoanTaxType loanTaxType, Boolean includeTax) {
         this.amount = amount;
         this.rate = rate;

@@ -210,7 +210,6 @@ class LoanAmortizationCalculatorTest {
 
         LoanAmortization amortization = calculator.calculate(loan);
         assertNotNull(amortization);
-
         LoanAmortization reference = OBJECT_MAPPER.readValue(new File("src/test/resources/reference-repeating-strategy-to-certain-month.json"), LoanAmortization.class);
 
         assertEquals(reference, amortization);
@@ -325,7 +324,7 @@ class LoanAmortizationCalculatorTest {
 
         LoanAmortization amortization = calculator.calculate(loan);
         assertNotNull(amortization);
-
+//        System.out.println(OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(amortization));
         LoanAmortization reference = OBJECT_MAPPER.readValue(new File("src/test/resources/reference-different-early-payments-500000.32-4.56-32.json"), LoanAmortization.class);
 
         assertEquals(reference, amortization);
