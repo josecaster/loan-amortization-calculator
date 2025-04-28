@@ -28,9 +28,7 @@ import java.beans.ConstructorProperties;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * This class represent input attributes of loan
@@ -74,20 +72,24 @@ public final class Loan implements Serializable {
     /**
      * Tax Percentage (optional)
      */
-    private BigDecimal taxPercentage;
+    private final BigDecimal taxPercentage;
 
     /**
      * Tax Type knowing what to calculate tax on (optional)
      */
-    private LoanTaxType loanTaxType;
+    private final LoanTaxType loanTaxType;
 
     /**
      * Tax included? (optional)
      */
-    private Boolean includeTax;
+    private final Boolean taxDeductible;
+    /**
+     * Products that make up the loan (optional)
+     */
+    private final List<Item> items;
 
-    @ConstructorProperties({"amount", "rate", "term", "earlyPayments", "firstPaymentDate", "loanType", "taxPercentage", "loanTaxType", "includeTax"})
-    public Loan(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType, BigDecimal taxPercentage, LoanTaxType loanTaxType, Boolean includeTax) {
+    @ConstructorProperties({"amount", "rate", "term", "earlyPayments", "firstPaymentDate", "loanType", "taxPercentage", "loanTaxType", "taxDeductible", "products"})
+    public Loan(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType, BigDecimal taxPercentage, LoanTaxType loanTaxType, Boolean taxDeductible, List<Item> items) {
         this.amount = amount;
         this.rate = rate;
         this.term = term;
@@ -96,7 +98,8 @@ public final class Loan implements Serializable {
         this.loanType = loanType;
         this.taxPercentage = taxPercentage;
         this.loanTaxType = loanTaxType;
-        this.includeTax = includeTax;
+        this.taxDeductible = taxDeductible;
+        this.items = items;
     }
 
     /**
@@ -152,8 +155,15 @@ public final class Loan implements Serializable {
         return loanTaxType;
     }
 
-    public Boolean getIncludeTax() {
-        return includeTax;
+    /**
+     * @return Products that make up the loan
+     */
+    public List<Item> getProducts() {
+        return items != null ? Collections.unmodifiableList(items) : Collections.emptyList();
+    }
+
+    public Boolean getTaxDeductible() {
+        return taxDeductible;
     }
 
     public static LoanBuilder builder() {
@@ -174,11 +184,12 @@ public final class Loan implements Serializable {
         private BigDecimal taxPercentage;
         private LoanTaxType loanTaxType;
         private Boolean includeTax;// null for no tax, true for include, false for exclude
+        private List<Item> items;
 
         public LoanBuilder() {
         }
 
-        public LoanBuilder(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType, BigDecimal taxPercentage, LoanTaxType loanTaxType, Boolean includeTax) {
+        public LoanBuilder(BigDecimal amount, BigDecimal rate, Integer term, Map<Integer, EarlyPayment> earlyPayments, LocalDate firstPaymentDate, LoanType loanType, BigDecimal taxPercentage, LoanTaxType loanTaxType, Boolean includeTax, List<Item> items) {
             this.amount = amount;
             this.rate = rate;
             this.term = term;
@@ -188,6 +199,7 @@ public final class Loan implements Serializable {
             this.taxPercentage = taxPercentage;
             this.loanTaxType = loanTaxType;
             this.includeTax = includeTax;
+            this.items = items;
         }
 
         /**
@@ -320,8 +332,19 @@ public final class Loan implements Serializable {
             return this;
         }
 
+        /**
+         * Sets products that make up the loan
+         *
+         * @param items list of products
+         * @return loan builder
+         */
+        public LoanBuilder products(List<Item> items) {
+            this.items = items;
+            return this;
+        }
+
         public Loan build() {
-            return new Loan(amount, rate, term, earlyPayments, firstPaymentDate,loanType, taxPercentage, loanTaxType, includeTax);
+            return new Loan(amount, rate, term, earlyPayments, firstPaymentDate,loanType, taxPercentage, loanTaxType, includeTax, items);
         }
     }
 

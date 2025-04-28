@@ -1,0 +1,9 @@
+{
+  "originalInterestAmount": 1000.00,
+  "originalPrincipalAmount": 5000.00,
+  "adjustedInterestAmount": 826.45,
+  "adjustedPrincipalAmount": 4132.23,
+  "interestTaxAmount": 173.55,
+  "principalTaxAmount": 867.77,
+  "taxIncluded": true
+}

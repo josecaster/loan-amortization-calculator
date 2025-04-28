@@ -1,0 +1,646 @@
+{
+  "monthlyPaymentAmount" : 16623.89,
+  "overPaymentAmount" : 31964.18,
+  "monthlyPayments" : [ {
+    "monthNumber" : 0,
+    "loanBalanceAmount" : 500000.32,
+    "debtPaymentAmount" : 13251.5010,
+    "interestPaymentAmount" : 1570.25,
+    "paymentAmount" : 14821.7510,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1802.1390,
+    "interestTaxAmount" : 329.75,
+    "principalTaxAmount" : 1472.3890,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 14723.89,
+      "remainingBalance" : 500000.32,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1472.3890
+    } ]
+  }, {
+    "monthNumber" : 1,
+    "loanBalanceAmount" : 485276.43,
+    "debtPaymentAmount" : 13301.8560,
+    "interestPaymentAmount" : 1524.01,
+    "paymentAmount" : 14825.8660,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1798.0240,
+    "interestTaxAmount" : 320.04,
+    "principalTaxAmount" : 1477.9840,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 14779.84,
+      "remainingBalance" : 485276.43,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1477.9840
+    } ]
+  }, {
+    "monthNumber" : 2,
+    "loanBalanceAmount" : 470496.59,
+    "debtPaymentAmount" : 13352.4000,
+    "interestPaymentAmount" : 1477.60,
+    "paymentAmount" : 14830.0000,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1793.8900,
+    "interestTaxAmount" : 310.29,
+    "principalTaxAmount" : 1483.6000,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 14836.00,
+      "remainingBalance" : 470496.59,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1483.6000
+    } ]
+  }, {
+    "monthNumber" : 3,
+    "loanBalanceAmount" : 455660.59,
+    "debtPaymentAmount" : 13403.1420,
+    "interestPaymentAmount" : 1431.00,
+    "paymentAmount" : 14834.1420,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1789.7480,
+    "interestTaxAmount" : 300.51,
+    "principalTaxAmount" : 1489.2380,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 14892.38,
+      "remainingBalance" : 455660.59,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1489.2380
+    } ]
+  }, {
+    "monthNumber" : 4,
+    "loanBalanceAmount" : 440768.21,
+    "debtPaymentAmount" : 13454.0730,
+    "interestPaymentAmount" : 1384.23,
+    "paymentAmount" : 14838.3030,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1785.5870,
+    "interestTaxAmount" : 290.69,
+    "principalTaxAmount" : 1494.8970,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 14948.97,
+      "remainingBalance" : 440768.21,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1494.8970
+    } ]
+  }, {
+    "monthNumber" : 5,
+    "loanBalanceAmount" : 425819.24,
+    "debtPaymentAmount" : 13505.2020,
+    "interestPaymentAmount" : 1337.28,
+    "paymentAmount" : 14842.4820,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1781.4080,
+    "interestTaxAmount" : 280.83,
+    "principalTaxAmount" : 1500.5780,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15005.78,
+      "remainingBalance" : 425819.24,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1500.5780
+    } ]
+  }, {
+    "monthNumber" : 6,
+    "loanBalanceAmount" : 410813.46,
+    "debtPaymentAmount" : 13556.5200,
+    "interestPaymentAmount" : 1290.16,
+    "paymentAmount" : 14846.6800,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1777.2100,
+    "interestTaxAmount" : 270.93,
+    "principalTaxAmount" : 1506.2800,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15062.80,
+      "remainingBalance" : 410813.46,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1506.2800
+    } ]
+  }, {
+    "monthNumber" : 7,
+    "loanBalanceAmount" : 395750.66,
+    "debtPaymentAmount" : 13608.0360,
+    "interestPaymentAmount" : 1242.85,
+    "paymentAmount" : 14850.8860,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1773.0040,
+    "interestTaxAmount" : 261.00,
+    "principalTaxAmount" : 1512.0040,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15120.04,
+      "remainingBalance" : 395750.66,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1512.0040
+    } ]
+  }, {
+    "monthNumber" : 8,
+    "loanBalanceAmount" : 380630.62,
+    "debtPaymentAmount" : 13659.7410,
+    "interestPaymentAmount" : 1195.37,
+    "paymentAmount" : 14855.1110,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1768.7790,
+    "interestTaxAmount" : 251.03,
+    "principalTaxAmount" : 1517.7490,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15177.49,
+      "remainingBalance" : 380630.62,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1517.7490
+    } ]
+  }, {
+    "monthNumber" : 9,
+    "loanBalanceAmount" : 365453.13,
+    "debtPaymentAmount" : 13711.6530,
+    "interestPaymentAmount" : 1147.70,
+    "paymentAmount" : 14859.3530,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1764.5370,
+    "interestTaxAmount" : 241.02,
+    "principalTaxAmount" : 1523.5170,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15235.17,
+      "remainingBalance" : 365453.13,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1523.5170
+    } ]
+  }, {
+    "monthNumber" : 10,
+    "loanBalanceAmount" : 350217.96,
+    "debtPaymentAmount" : 13763.7540,
+    "interestPaymentAmount" : 1099.86,
+    "paymentAmount" : 14863.6140,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1760.2760,
+    "interestTaxAmount" : 230.97,
+    "principalTaxAmount" : 1529.3060,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15293.06,
+      "remainingBalance" : 350217.96,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1529.3060
+    } ]
+  }, {
+    "monthNumber" : 11,
+    "loanBalanceAmount" : 334924.90,
+    "debtPaymentAmount" : 13816.0620,
+    "interestPaymentAmount" : 1051.83,
+    "paymentAmount" : 14867.8920,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1755.9980,
+    "interestTaxAmount" : 220.88,
+    "principalTaxAmount" : 1535.1180,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15351.18,
+      "remainingBalance" : 334924.90,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1535.1180
+    } ]
+  }, {
+    "monthNumber" : 12,
+    "loanBalanceAmount" : 319573.72,
+    "debtPaymentAmount" : 13868.5590,
+    "interestPaymentAmount" : 1003.62,
+    "paymentAmount" : 14872.1790,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1751.7110,
+    "interestTaxAmount" : 210.76,
+    "principalTaxAmount" : 1540.9510,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15409.51,
+      "remainingBalance" : 319573.72,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1540.9510
+    } ]
+  }, {
+    "monthNumber" : 13,
+    "loanBalanceAmount" : 304164.21,
+    "debtPaymentAmount" : 13921.2630,
+    "interestPaymentAmount" : 955.22,
+    "paymentAmount" : 14876.4830,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1747.4070,
+    "interestTaxAmount" : 200.60,
+    "principalTaxAmount" : 1546.8070,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15468.07,
+      "remainingBalance" : 304164.21,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1546.8070
+    } ]
+  }, {
+    "monthNumber" : 14,
+    "loanBalanceAmount" : 288696.14,
+    "debtPaymentAmount" : 13974.1560,
+    "interestPaymentAmount" : 906.65,
+    "paymentAmount" : 14880.8060,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1743.0840,
+    "interestTaxAmount" : 190.40,
+    "principalTaxAmount" : 1552.6840,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15526.84,
+      "remainingBalance" : 288696.14,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1552.6840
+    } ]
+  }, {
+    "monthNumber" : 15,
+    "loanBalanceAmount" : 273169.30,
+    "debtPaymentAmount" : 14027.2650,
+    "interestPaymentAmount" : 857.88,
+    "paymentAmount" : 14885.1450,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1738.7450,
+    "interestTaxAmount" : 180.16,
+    "principalTaxAmount" : 1558.5850,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15585.85,
+      "remainingBalance" : 273169.30,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1558.5850
+    } ]
+  }, {
+    "monthNumber" : 16,
+    "loanBalanceAmount" : 257583.45,
+    "debtPaymentAmount" : 14080.5630,
+    "interestPaymentAmount" : 808.94,
+    "paymentAmount" : 14889.5030,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1734.3870,
+    "interestTaxAmount" : 169.88,
+    "principalTaxAmount" : 1564.5070,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15645.07,
+      "remainingBalance" : 257583.45,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1564.5070
+    } ]
+  }, {
+    "monthNumber" : 17,
+    "loanBalanceAmount" : 241938.38,
+    "debtPaymentAmount" : 14134.0680,
+    "interestPaymentAmount" : 759.81,
+    "paymentAmount" : 14893.8780,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1730.0120,
+    "interestTaxAmount" : 159.56,
+    "principalTaxAmount" : 1570.4520,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15704.52,
+      "remainingBalance" : 241938.38,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1570.4520
+    } ]
+  }, {
+    "monthNumber" : 18,
+    "loanBalanceAmount" : 226233.86,
+    "debtPaymentAmount" : 14187.7800,
+    "interestPaymentAmount" : 710.49,
+    "paymentAmount" : 14898.2700,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1725.6200,
+    "interestTaxAmount" : 149.20,
+    "principalTaxAmount" : 1576.4200,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15764.20,
+      "remainingBalance" : 226233.86,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1576.4200
+    } ]
+  }, {
+    "monthNumber" : 19,
+    "loanBalanceAmount" : 210469.66,
+    "debtPaymentAmount" : 14241.6990,
+    "interestPaymentAmount" : 660.98,
+    "paymentAmount" : 14902.6790,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1721.2110,
+    "interestTaxAmount" : 138.80,
+    "principalTaxAmount" : 1582.4110,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15824.11,
+      "remainingBalance" : 210469.66,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1582.4110
+    } ]
+  }, {
+    "monthNumber" : 20,
+    "loanBalanceAmount" : 194645.55,
+    "debtPaymentAmount" : 14295.8160,
+    "interestPaymentAmount" : 611.28,
+    "paymentAmount" : 14907.0960,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1716.7940,
+    "interestTaxAmount" : 128.37,
+    "principalTaxAmount" : 1588.4240,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15884.24,
+      "remainingBalance" : 194645.55,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1588.4240
+    } ]
+  }, {
+    "monthNumber" : 21,
+    "loanBalanceAmount" : 178761.31,
+    "debtPaymentAmount" : 14350.1400,
+    "interestPaymentAmount" : 561.40,
+    "paymentAmount" : 14911.5400,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1712.3500,
+    "interestTaxAmount" : 117.89,
+    "principalTaxAmount" : 1594.4600,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 15944.60,
+      "remainingBalance" : 178761.31,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1594.4600
+    } ]
+  }, {
+    "monthNumber" : 22,
+    "loanBalanceAmount" : 162816.71,
+    "debtPaymentAmount" : 14404.6710,
+    "interestPaymentAmount" : 511.32,
+    "paymentAmount" : 14915.9910,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1707.8990,
+    "interestTaxAmount" : 107.38,
+    "principalTaxAmount" : 1600.5190,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16005.19,
+      "remainingBalance" : 162816.71,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1600.5190
+    } ]
+  }, {
+    "monthNumber" : 23,
+    "loanBalanceAmount" : 146811.52,
+    "debtPaymentAmount" : 14459.4090,
+    "interestPaymentAmount" : 461.06,
+    "paymentAmount" : 14920.4690,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1703.4210,
+    "interestTaxAmount" : 96.82,
+    "principalTaxAmount" : 1606.6010,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16066.01,
+      "remainingBalance" : 146811.52,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1606.6010
+    } ]
+  }, {
+    "monthNumber" : 24,
+    "loanBalanceAmount" : 130745.51,
+    "debtPaymentAmount" : 14514.3540,
+    "interestPaymentAmount" : 410.60,
+    "paymentAmount" : 14924.9540,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1698.9360,
+    "interestTaxAmount" : 86.23,
+    "principalTaxAmount" : 1612.7060,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16127.06,
+      "remainingBalance" : 130745.51,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1612.7060
+    } ]
+  }, {
+    "monthNumber" : 25,
+    "loanBalanceAmount" : 114618.45,
+    "debtPaymentAmount" : 14569.5060,
+    "interestPaymentAmount" : 359.96,
+    "paymentAmount" : 14929.4660,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1694.4240,
+    "interestTaxAmount" : 75.59,
+    "principalTaxAmount" : 1618.8340,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16188.34,
+      "remainingBalance" : 114618.45,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1618.8340
+    } ]
+  }, {
+    "monthNumber" : 26,
+    "loanBalanceAmount" : 98430.11,
+    "debtPaymentAmount" : 14624.8740,
+    "interestPaymentAmount" : 309.12,
+    "paymentAmount" : 14933.9940,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1689.8960,
+    "interestTaxAmount" : 64.91,
+    "principalTaxAmount" : 1624.9860,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16249.86,
+      "remainingBalance" : 98430.11,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1624.9860
+    } ]
+  }, {
+    "monthNumber" : 27,
+    "loanBalanceAmount" : 82180.25,
+    "debtPaymentAmount" : 14680.4490,
+    "interestPaymentAmount" : 258.08,
+    "paymentAmount" : 14938.5290,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1685.3610,
+    "interestTaxAmount" : 54.20,
+    "principalTaxAmount" : 1631.1610,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16311.61,
+      "remainingBalance" : 82180.25,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1631.1610
+    } ]
+  }, {
+    "monthNumber" : 28,
+    "loanBalanceAmount" : 65868.64,
+    "debtPaymentAmount" : 14736.2310,
+    "interestPaymentAmount" : 206.86,
+    "paymentAmount" : 14943.0910,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1680.7990,
+    "interestTaxAmount" : 43.44,
+    "principalTaxAmount" : 1637.3590,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16373.59,
+      "remainingBalance" : 65868.64,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1637.3590
+    } ]
+  }, {
+    "monthNumber" : 29,
+    "loanBalanceAmount" : 49495.05,
+    "debtPaymentAmount" : 14792.2290,
+    "interestPaymentAmount" : 155.44,
+    "paymentAmount" : 14947.6690,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1676.2210,
+    "interestTaxAmount" : 32.64,
+    "principalTaxAmount" : 1643.5810,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16435.81,
+      "remainingBalance" : 49495.05,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1643.5810
+    } ]
+  }, {
+    "monthNumber" : 30,
+    "loanBalanceAmount" : 33059.24,
+    "debtPaymentAmount" : 14848.4340,
+    "interestPaymentAmount" : 103.83,
+    "paymentAmount" : 14952.2640,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1671.6260,
+    "interestTaxAmount" : 21.80,
+    "principalTaxAmount" : 1649.8260,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16498.26,
+      "remainingBalance" : 33059.24,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1649.8260
+    } ]
+  }, {
+    "monthNumber" : 31,
+    "loanBalanceAmount" : 16560.98,
+    "debtPaymentAmount" : 14904.8820,
+    "interestPaymentAmount" : 52.01,
+    "paymentAmount" : 14956.8920,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 1667.0180,
+    "interestTaxAmount" : 10.92,
+    "principalTaxAmount" : 1656.0980,
+    "productPayments" : [ {
+      "productId" : "1000",
+      "productName" : "Test product",
+      "originalAmount" : 500000.32,
+      "principalAmount" : 16560.98,
+      "remainingBalance" : 16560.98,
+      "additionalPaymentAmount" : 0.00,
+      "tax" : 1656.0980
+    } ]
+  } ],
+  "earlyPayments" : { }
+}

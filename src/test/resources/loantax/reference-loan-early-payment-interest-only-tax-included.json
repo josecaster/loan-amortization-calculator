@@ -1,0 +1,332 @@
+{
+  "monthlyPaymentAmount" : 16623.89,
+  "overPaymentAmount" : 27029.95,
+  "monthlyPayments" : [ {
+    "monthNumber" : 0,
+    "loanBalanceAmount" : 500000.32,
+    "debtPaymentAmount" : 14723.89,
+    "interestPaymentAmount" : 1570.25,
+    "paymentAmount" : 16294.14,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 329.75,
+    "interestTaxAmount" : 329.75,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 1,
+    "loanBalanceAmount" : 485276.43,
+    "debtPaymentAmount" : 14779.84,
+    "interestPaymentAmount" : 1524.01,
+    "paymentAmount" : 16303.85,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 320.04,
+    "interestTaxAmount" : 320.04,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 2,
+    "loanBalanceAmount" : 470496.59,
+    "debtPaymentAmount" : 14836.00,
+    "interestPaymentAmount" : 1477.60,
+    "paymentAmount" : 16313.60,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 310.29,
+    "interestTaxAmount" : 310.29,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 3,
+    "loanBalanceAmount" : 455660.59,
+    "debtPaymentAmount" : 14892.38,
+    "interestPaymentAmount" : 1431.00,
+    "paymentAmount" : 16323.38,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 300.51,
+    "interestTaxAmount" : 300.51,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 4,
+    "loanBalanceAmount" : 440768.21,
+    "debtPaymentAmount" : 14948.97,
+    "interestPaymentAmount" : 1384.23,
+    "paymentAmount" : 16333.20,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 290.69,
+    "interestTaxAmount" : 290.69,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 5,
+    "loanBalanceAmount" : 425819.24,
+    "debtPaymentAmount" : 65005.78,
+    "interestPaymentAmount" : 1337.28,
+    "paymentAmount" : 66343.06,
+    "additionalPaymentAmount" : 50000,
+    "paymentDate" : null,
+    "taxAmount" : 280.83,
+    "interestTaxAmount" : 280.83,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 6,
+    "loanBalanceAmount" : 360813.46,
+    "debtPaymentAmount" : 15252.80,
+    "interestPaymentAmount" : 1133.13,
+    "paymentAmount" : 16385.93,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 237.96,
+    "interestTaxAmount" : 237.96,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 7,
+    "loanBalanceAmount" : 345560.66,
+    "debtPaymentAmount" : 15310.76,
+    "interestPaymentAmount" : 1085.23,
+    "paymentAmount" : 16395.99,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 227.90,
+    "interestTaxAmount" : 227.90,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 8,
+    "loanBalanceAmount" : 330249.90,
+    "debtPaymentAmount" : 15368.94,
+    "interestPaymentAmount" : 1037.15,
+    "paymentAmount" : 16406.09,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 217.80,
+    "interestTaxAmount" : 217.80,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 9,
+    "loanBalanceAmount" : 314880.96,
+    "debtPaymentAmount" : 15427.34,
+    "interestPaymentAmount" : 988.88,
+    "paymentAmount" : 16416.22,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 207.67,
+    "interestTaxAmount" : 207.67,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 10,
+    "loanBalanceAmount" : 299453.62,
+    "debtPaymentAmount" : 15485.97,
+    "interestPaymentAmount" : 940.43,
+    "paymentAmount" : 16426.40,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 197.49,
+    "interestTaxAmount" : 197.49,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 11,
+    "loanBalanceAmount" : 283967.65,
+    "debtPaymentAmount" : 15544.81,
+    "interestPaymentAmount" : 891.80,
+    "paymentAmount" : 16436.61,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 187.28,
+    "interestTaxAmount" : 187.28,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 12,
+    "loanBalanceAmount" : 268422.84,
+    "debtPaymentAmount" : 15603.88,
+    "interestPaymentAmount" : 842.98,
+    "paymentAmount" : 16446.86,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 177.03,
+    "interestTaxAmount" : 177.03,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 13,
+    "loanBalanceAmount" : 252818.96,
+    "debtPaymentAmount" : 15663.18,
+    "interestPaymentAmount" : 793.98,
+    "paymentAmount" : 16457.16,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 166.73,
+    "interestTaxAmount" : 166.73,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 14,
+    "loanBalanceAmount" : 237155.78,
+    "debtPaymentAmount" : 15722.70,
+    "interestPaymentAmount" : 744.79,
+    "paymentAmount" : 16467.49,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 156.40,
+    "interestTaxAmount" : 156.40,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 15,
+    "loanBalanceAmount" : 221433.08,
+    "debtPaymentAmount" : 15782.44,
+    "interestPaymentAmount" : 695.41,
+    "paymentAmount" : 16477.85,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 146.04,
+    "interestTaxAmount" : 146.04,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 16,
+    "loanBalanceAmount" : 205650.64,
+    "debtPaymentAmount" : 15842.42,
+    "interestPaymentAmount" : 645.84,
+    "paymentAmount" : 16488.26,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 135.63,
+    "interestTaxAmount" : 135.63,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 17,
+    "loanBalanceAmount" : 189808.22,
+    "debtPaymentAmount" : 15902.62,
+    "interestPaymentAmount" : 596.09,
+    "paymentAmount" : 16498.71,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 125.18,
+    "interestTaxAmount" : 125.18,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 18,
+    "loanBalanceAmount" : 173905.60,
+    "debtPaymentAmount" : 15963.05,
+    "interestPaymentAmount" : 546.15,
+    "paymentAmount" : 16509.20,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 114.69,
+    "interestTaxAmount" : 114.69,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 19,
+    "loanBalanceAmount" : 157942.55,
+    "debtPaymentAmount" : 16023.71,
+    "interestPaymentAmount" : 496.02,
+    "paymentAmount" : 16519.73,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 104.16,
+    "interestTaxAmount" : 104.16,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 20,
+    "loanBalanceAmount" : 141918.84,
+    "debtPaymentAmount" : 16084.60,
+    "interestPaymentAmount" : 445.69,
+    "paymentAmount" : 16530.29,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 93.60,
+    "interestTaxAmount" : 93.60,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 21,
+    "loanBalanceAmount" : 125834.24,
+    "debtPaymentAmount" : 16145.72,
+    "interestPaymentAmount" : 395.18,
+    "paymentAmount" : 16540.90,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 82.99,
+    "interestTaxAmount" : 82.99,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 22,
+    "loanBalanceAmount" : 109688.52,
+    "debtPaymentAmount" : 16207.07,
+    "interestPaymentAmount" : 344.48,
+    "paymentAmount" : 16551.55,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 72.34,
+    "interestTaxAmount" : 72.34,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 23,
+    "loanBalanceAmount" : 93481.45,
+    "debtPaymentAmount" : 16268.66,
+    "interestPaymentAmount" : 293.58,
+    "paymentAmount" : 16562.24,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 61.65,
+    "interestTaxAmount" : 61.65,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 24,
+    "loanBalanceAmount" : 77212.79,
+    "debtPaymentAmount" : 16330.48,
+    "interestPaymentAmount" : 242.49,
+    "paymentAmount" : 16572.97,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 50.92,
+    "interestTaxAmount" : 50.92,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 25,
+    "loanBalanceAmount" : 60882.31,
+    "debtPaymentAmount" : 16392.54,
+    "interestPaymentAmount" : 191.20,
+    "paymentAmount" : 16583.74,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 40.15,
+    "interestTaxAmount" : 40.15,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 26,
+    "loanBalanceAmount" : 44489.77,
+    "debtPaymentAmount" : 16454.83,
+    "interestPaymentAmount" : 139.72,
+    "paymentAmount" : 16594.55,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 29.34,
+    "interestTaxAmount" : 29.34,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 27,
+    "loanBalanceAmount" : 28034.94,
+    "debtPaymentAmount" : 16517.36,
+    "interestPaymentAmount" : 88.04,
+    "paymentAmount" : 16605.40,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 18.49,
+    "interestTaxAmount" : 18.49,
+    "principalTaxAmount" : 0
+  }, {
+    "monthNumber" : 28,
+    "loanBalanceAmount" : 11517.58,
+    "debtPaymentAmount" : 11517.58,
+    "interestPaymentAmount" : 29.89,
+    "paymentAmount" : 11547.47,
+    "additionalPaymentAmount" : 0,
+    "paymentDate" : null,
+    "taxAmount" : 6.28,
+    "interestTaxAmount" : 6.28,
+    "principalTaxAmount" : 0
+  } ],
+  "earlyPayments" : {
+    "5" : {
+      "amount" : 50000,
+      "repeatingStrategy" : "SINGLE",
+      "additionalParameters" : null,
+      "strategy" : "DECREASE_TERM"
+    }
+  }
+}

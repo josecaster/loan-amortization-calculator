@@ -98,7 +98,7 @@ class LoanAmortizationCalculatorImpl implements LoanAmortizationCalculator {
         }
 
         LOGGER.debug("After applying repeating strategy: {} ", allEarlyPayments);
-        return Loan.builder().amount(loan.getAmount()).earlyPayments(allEarlyPayments).rate(loan.getRate()).term(loan.getTerm()).firstPaymentDate(loan.getFirstPaymentDate()).tax(loan.getIncludeTax()).tax(loan.getTaxPercentage()).tax(loan.getLoanTaxType()).build();
+        return Loan.builder().amount(loan.getAmount()).earlyPayments(allEarlyPayments).rate(loan.getRate()).term(loan.getTerm()).firstPaymentDate(loan.getFirstPaymentDate()).tax(loan.getTaxDeductible()).tax(loan.getTaxPercentage()).tax(loan.getLoanTaxType()).products(loan.getProducts()).build();
     }
 
     private void validate(Loan loan) {

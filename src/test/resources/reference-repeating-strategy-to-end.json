@@ -10,7 +10,9 @@
       "paymentAmount": 16623.89,
       "additionalPaymentAmount": 0,
       "paymentDate": null,
-      "taxAmount":0
+      "taxAmount":0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 1,
@@ -20,7 +22,9 @@
       "paymentAmount": 16623.89,
       "additionalPaymentAmount": 0,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 2,
@@ -30,7 +34,9 @@
       "paymentAmount": 16623.89,
       "additionalPaymentAmount": 0,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 3,
@@ -40,7 +46,9 @@
       "paymentAmount": 16623.89,
       "additionalPaymentAmount": 0,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 4,
@@ -50,7 +58,9 @@
       "paymentAmount": 16623.89,
       "additionalPaymentAmount": 0,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 5,
@@ -60,7 +70,9 @@
       "paymentAmount": 66623.89,
       "additionalPaymentAmount": 50000,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 6,
@@ -70,7 +82,9 @@
       "paymentAmount": 66623.89,
       "additionalPaymentAmount": 50000,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 7,
@@ -80,7 +94,9 @@
       "paymentAmount": 66623.89,
       "additionalPaymentAmount": 50000,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 8,
@@ -90,7 +106,9 @@
       "paymentAmount": 66623.89,
       "additionalPaymentAmount": 50000,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 9,
@@ -100,7 +118,9 @@
       "paymentAmount": 66623.89,
       "additionalPaymentAmount": 50000,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 10,
@@ -110,7 +130,9 @@
       "paymentAmount": 66623.89,
       "additionalPaymentAmount": 50000,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     },
     {
       "monthNumber": 11,
@@ -120,7 +142,9 @@
       "paymentAmount": 32182.25,
       "additionalPaymentAmount": 50000,
       "paymentDate": null,
-      "taxAmount": 0
+      "taxAmount": 0,
+      "interestTaxAmount": 0,
+      "principalTaxAmount": 0
     }
   ],
   "earlyPayments": {

@@ -1,34 +1,13 @@
-/*
- * MIT License
- *
- * Copyright (c) 2021 Artyom Panfutov
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
- */
 package paqua.loan.amortization.dto;
 
 import java.beans.ConstructorProperties;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
+import paqua.loan.amortization.api.impl.TaxResult;
 
 /**
  * Represents detailed information about monthly payment in loan amortization
@@ -64,9 +43,19 @@ public final class MonthlyPayment implements Serializable {
     private final BigDecimal paymentAmount;
 
     /**
-     * Payment amount
+     * Total tax amount (interest tax + principal tax)
      */
     private final BigDecimal taxAmount;
+
+    /**
+     * Tax amount applied to the interest portion
+     */
+    private final BigDecimal interestTaxAmount;
+
+    /**
+     * Tax amount applied to the principal portion
+     */
+    private final BigDecimal principalTaxAmount;
 
     /**
      * Additional payment
@@ -78,8 +67,27 @@ public final class MonthlyPayment implements Serializable {
      */
     private final LocalDate paymentDate;
 
-    @ConstructorProperties({"monthNumber", "loanBalanceAmount", "debtPaymentAmount", "interestPaymentAmount", "paymentAmount", "additionalPaymentAmount", "paymentDate", "taxAmount"})
-    public MonthlyPayment(Integer monthNumber, BigDecimal loanBalanceAmount, BigDecimal debtPaymentAmount, BigDecimal interestPaymentAmount, BigDecimal paymentAmount, BigDecimal additionalPaymentAmount, LocalDate paymentDate, BigDecimal taxAmount) {
+    /**
+     * Product payment breakdowns
+     */
+    private final List<ItemPayment> itemPayments;
+
+    @ConstructorProperties({
+            "monthNumber", "loanBalanceAmount", "debtPaymentAmount", "interestPaymentAmount",
+            "paymentAmount", "additionalPaymentAmount", "paymentDate", "taxAmount",
+            "interestTaxAmount", "principalTaxAmount", "productPayments"
+    })
+    public MonthlyPayment(
+            Integer monthNumber,
+            BigDecimal loanBalanceAmount,
+            BigDecimal debtPaymentAmount,
+            BigDecimal interestPaymentAmount,
+            BigDecimal paymentAmount,
+            BigDecimal additionalPaymentAmount,
+            LocalDate paymentDate,
+            BigDecimal taxAmount,
+            BigDecimal interestTaxAmount,
+            BigDecimal principalTaxAmount, List<ItemPayment> itemPayments) {
         this.monthNumber = monthNumber;
         this.loanBalanceAmount = loanBalanceAmount;
         this.debtPaymentAmount = debtPaymentAmount;
@@ -88,6 +96,9 @@ public final class MonthlyPayment implements Serializable {
         this.additionalPaymentAmount = additionalPaymentAmount;
         this.paymentDate = paymentDate;
         this.taxAmount = taxAmount;
+        this.interestTaxAmount = interestTaxAmount;
+        this.principalTaxAmount = principalTaxAmount;
+        this.itemPayments = itemPayments;
     }
 
     /**
@@ -139,8 +150,32 @@ public final class MonthlyPayment implements Serializable {
         return paymentDate;
     }
 
+    /**
+     * @return Total tax amount (interest tax + principal tax)
+     */
     public BigDecimal getTaxAmount() {
         return taxAmount;
+    }
+
+    /**
+     * @return Tax amount applied to the interest portion
+     */
+    public BigDecimal getInterestTaxAmount() {
+        return interestTaxAmount;
+    }
+
+    /**
+     * @return Tax amount applied to the principal portion
+     */
+    public BigDecimal getPrincipalTaxAmount() {
+        return principalTaxAmount;
+    }
+
+    /**
+     * @return Product payment breakdowns
+     */
+    public List<ItemPayment> getProductPayments() {
+        return itemPayments != null ? Collections.unmodifiableList(itemPayments) : Collections.emptyList();
     }
 
     public static MonthlyPaymentBuilder builder() {
@@ -159,19 +194,11 @@ public final class MonthlyPayment implements Serializable {
         private BigDecimal additionalPaymentAmount;
         private LocalDate paymentDate;
         private BigDecimal taxAmount;
+        private BigDecimal interestTaxAmount;
+        private BigDecimal principalTaxAmount;
+        private List<ItemPayment> itemPayments;
 
         public MonthlyPaymentBuilder() {
-        }
-
-        public MonthlyPaymentBuilder(Integer monthNumber, BigDecimal loanBalanceAmount, BigDecimal debtPaymentAmount, BigDecimal interestPaymentAmount, BigDecimal paymentAmount, BigDecimal additionalPaymentAmount, LocalDate paymentDate, BigDecimal taxAmount) {
-            this.monthNumber = monthNumber;
-            this.loanBalanceAmount = loanBalanceAmount;
-            this.debtPaymentAmount = debtPaymentAmount;
-            this.interestPaymentAmount = interestPaymentAmount;
-            this.paymentAmount = paymentAmount;
-            this.additionalPaymentAmount = additionalPaymentAmount;
-            this.paymentDate = paymentDate;
-            this.taxAmount = taxAmount;
         }
 
         /**
@@ -245,8 +272,8 @@ public final class MonthlyPayment implements Serializable {
         }
 
         /**
-         * Sets a tax amount
-         * @param taxAmount
+         * Sets the total tax amount
+         * @param taxAmount total tax amount
          * @return monthly payment builder
          */
         public MonthlyPaymentBuilder taxAmount(BigDecimal taxAmount) {
@@ -255,11 +282,81 @@ public final class MonthlyPayment implements Serializable {
         }
 
         /**
+         * Sets the interest tax amount
+         * @param interestTaxAmount tax amount applied to interest
+         * @return monthly payment builder
+         */
+        public MonthlyPaymentBuilder interestTaxAmount(BigDecimal interestTaxAmount) {
+            this.interestTaxAmount = interestTaxAmount;
+            return this;
+        }
+
+        /**
+         * Sets the principal tax amount
+         * @param principalTaxAmount tax amount applied to principal
+         * @return monthly payment builder
+         */
+        public MonthlyPaymentBuilder principalTaxAmount(BigDecimal principalTaxAmount) {
+            this.principalTaxAmount = principalTaxAmount;
+            return this;
+        }
+
+        /**
+         * Applies tax result to this builder
+         * @param taxResult the tax calculation result
+         * @return monthly payment builder
+         */
+        public MonthlyPaymentBuilder withTaxResult(TaxResult taxResult) {
+            this.taxAmount = taxResult.getTotalTaxAmount();
+            this.interestTaxAmount = taxResult.getInterestTaxAmount();
+            this.principalTaxAmount = taxResult.getPrincipalTaxAmount();
+
+            // Update interest and principal amounts to use the adjusted values
+            this.interestPaymentAmount = taxResult.getAdjustedInterestAmount();
+            this.debtPaymentAmount = taxResult.getAdjustedPrincipalAmount();
+
+            return this;
+        }
+
+        /**
+         * Sets product payment breakdowns
+         * @param itemPayments list of product payments
+         * @return monthly payment builder
+         */
+        public MonthlyPaymentBuilder productPayments(List<ItemPayment> itemPayments) {
+            this.itemPayments = itemPayments;
+            return this;
+        }
+
+        /**
          * Builds an immutable monthly payment object
          * @return monthly payment
          */
         public MonthlyPayment build() {
-            return new MonthlyPayment(monthNumber, loanBalanceAmount, debtPaymentAmount, interestPaymentAmount, paymentAmount, additionalPaymentAmount, paymentDate, taxAmount);
+            // Default values for tax fields if not set
+            BigDecimal finalInterestTaxAmount = interestTaxAmount != null ? interestTaxAmount : BigDecimal.ZERO;
+            BigDecimal finalPrincipalTaxAmount = principalTaxAmount != null ? principalTaxAmount : BigDecimal.ZERO;
+
+            // If taxAmount is not set but component tax amounts are, calculate the total
+            if (taxAmount == null && (interestTaxAmount != null || principalTaxAmount != null)) {
+                taxAmount = finalInterestTaxAmount.add(finalPrincipalTaxAmount);
+            } else if (taxAmount == null) {
+                taxAmount = BigDecimal.ZERO;
+            }
+
+            return new MonthlyPayment(
+                    monthNumber,
+                    loanBalanceAmount,
+                    debtPaymentAmount,
+                    interestPaymentAmount,
+                    paymentAmount,
+                    additionalPaymentAmount,
+                    paymentDate,
+                    taxAmount,
+                    finalInterestTaxAmount,
+                    finalPrincipalTaxAmount,
+                    itemPayments
+            );
         }
     }
 
@@ -275,12 +372,16 @@ public final class MonthlyPayment implements Serializable {
                 Objects.equals(paymentAmount, that.paymentAmount) &&
                 Objects.equals(additionalPaymentAmount, that.additionalPaymentAmount) &&
                 Objects.equals(paymentDate, that.paymentDate) &&
-                Objects.equals(taxAmount, that.taxAmount);
+                Objects.equals(taxAmount, that.taxAmount) &&
+                Objects.equals(interestTaxAmount, that.interestTaxAmount) &&
+                Objects.equals(principalTaxAmount, that.principalTaxAmount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(monthNumber, loanBalanceAmount, debtPaymentAmount, interestPaymentAmount, paymentAmount, additionalPaymentAmount, paymentDate, taxAmount);
+        return Objects.hash(monthNumber, loanBalanceAmount, debtPaymentAmount, interestPaymentAmount,
+                paymentAmount, additionalPaymentAmount, paymentDate, taxAmount,
+                interestTaxAmount, principalTaxAmount);
     }
 
     @Override
@@ -294,6 +395,8 @@ public final class MonthlyPayment implements Serializable {
                 ", additionalPaymentAmount=" + additionalPaymentAmount +
                 ", paymentDate=" + paymentDate +
                 ", taxAmount=" + taxAmount +
+                ", interestTaxAmount=" + interestTaxAmount +
+                ", principalTaxAmount=" + principalTaxAmount +
                 '}';
     }
 }

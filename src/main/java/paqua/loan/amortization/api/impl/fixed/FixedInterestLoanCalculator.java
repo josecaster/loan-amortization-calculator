@@ -57,8 +57,8 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
                         continue;
                     }
 
-                    TaxResult taxResult = TaxResult.calculateTax(loan, monthlyInterest, monthlyPrincipal);
-                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTotalVatExcludedAmount()), additionalPaymentAmount, paymentDate, taxResult.getTotalVatAmount()));
+//                    TaxResult taxResult = TaxResult.calculateTax(loan.getTaxDeductible(), loan.getLoanTaxType(), loan.getTaxPercentage(), monthlyInterest, monthlyPrincipal);
+//                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTotalVatExcludedAmount()), additionalPaymentAmount, paymentDate, taxResult.getTotalVatAmount()));
                     monthlyPrincipal = remainingPrincipal.divide(BigDecimal.valueOf(term-i), 2, RoundingMode.HALF_UP);
                     paymentAmount = monthlyInterest.add(monthlyPrincipal);
                 }
@@ -68,8 +68,8 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
                     if(paymentAmount.compareTo(BigDecimal.ZERO) <= 0){
                         continue;
                     }
-                    TaxResult taxResult = TaxResult.calculateTax(loan, monthlyInterest, monthlyPrincipal);
-                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTotalVatExcludedAmount()), additionalPaymentAmount, paymentDate, taxResult.getTotalVatAmount()));
+//                    TaxResult taxResult = TaxResult.calculateTax(loan.getTaxDeductible(), loan.getLoanTaxType(), loan.getTaxPercentage(), monthlyInterest, monthlyPrincipal);
+//                    payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTotalVatExcludedAmount()), additionalPaymentAmount, paymentDate, taxResult.getTotalVatAmount()));
                 }
             } else {
 
@@ -83,8 +83,8 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
                 if(paymentAmount.compareTo(BigDecimal.ZERO) <= 0){
                     continue;
                 }
-                TaxResult taxResult = TaxResult.calculateTax(loan, monthlyInterest, monthlyPrincipal);
-                payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTotalVatExcludedAmount()), additionalPaymentAmount, paymentDate, taxResult.getTotalVatAmount()));
+//                TaxResult taxResult = TaxResult.calculateTax(loan.getTaxDeductible(), loan.getLoanTaxType(), loan.getTaxPercentage(), monthlyInterest, monthlyPrincipal);
+//                payments.add(new MonthlyPayment(i, remainingPrincipal, taxResult.getUpdatedMonthlyPrincipal(), taxResult.getUpdatedMonthlyInterest(), paymentAmount.add(taxResult.getTotalVatExcludedAmount()), additionalPaymentAmount, paymentDate, taxResult.getTotalVatAmount()));
             }
 
 
@@ -101,18 +101,5 @@ public class FixedInterestLoanCalculator implements LoanAmortizationCalculator {
 
         LOGGER.debug("Calculation result: {}", result);
         return result;
-    }
-
-    public static BigDecimal getTaxAmountIncluded(Loan loan, BigDecimal monthlyInterest) {
-        BigDecimal percentage = loan.getTaxPercentage();
-        BigDecimal vatRate = percentage.divide(new BigDecimal("100"), 2, RoundingMode.HALF_UP);
-
-        // Step 1: Calculate the base price before VAT
-        BigDecimal divisor = BigDecimal.ONE.add(vatRate); // Divisor is 1.10
-        BigDecimal basePrice = monthlyInterest.divide(divisor, 2, RoundingMode.HALF_UP); // Base price before VAT
-
-        // Step 2: Calculate the VAT amount
-        BigDecimal vatAmount1 = monthlyInterest.subtract(basePrice); // VAT is the difference
-        return vatAmount1;
     }
 }

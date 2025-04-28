@@ -1,0 +1,9 @@
+{
+  "originalInterestAmount": 1000.0,
+  "originalPrincipalAmount": 5000.0,
+  "adjustedInterestAmount": 1000.0,
+  "adjustedPrincipalAmount": 5000.0,
+  "interestTaxAmount": 210.00,
+  "principalTaxAmount": 1050.00,
+  "taxIncluded": false
+}
